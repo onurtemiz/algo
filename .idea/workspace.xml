@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d0dbed1-ea46-4144-9337-3b8a61ff4128" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/sales0out.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/asd.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,10 +30,79 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.sales0out">
+    <configuration name="sales0out" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="algo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sales0out.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="algo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tt.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.sales0out" />
+        <item itemvalue="Python.tt" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -43,5 +116,51 @@
       <updated>1582362401934</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582363623514">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.800@0.0.1280.800" timestamp="1582363623514" />
+    <state x="55" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582391613144">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="55" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800/1280.0.2560.1080@0.0.1280.800" timestamp="1582391613144" />
+    <state x="264" y="2" key="CommitChangelistDialog2" timestamp="1582405449057">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="264" y="2" key="CommitChangelistDialog2/0.0.1280.800/1280.0.2560.1080@0.0.1280.800" timestamp="1582405449057" />
+    <state width="1259" height="218" key="GridCell.Tab.0.bottom" timestamp="1582404671287">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1259" height="218" key="GridCell.Tab.0.bottom/0.0.1280.800/1280.0.2560.1080@0.0.1280.800" timestamp="1582404671287" />
+    <state width="613" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800/1280.23.2560.1057@0.0.1280.800" timestamp="1582368766628" />
+    <state width="1259" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1582388557238" />
+    <state width="1259" height="218" key="GridCell.Tab.0.center" timestamp="1582404671285">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1259" height="218" key="GridCell.Tab.0.center/0.0.1280.800/1280.0.2560.1080@0.0.1280.800" timestamp="1582404671285" />
+    <state width="613" height="212" key="GridCell.Tab.0.center/0.0.1280.800/1280.23.2560.1057@0.0.1280.800" timestamp="1582368766626" />
+    <state width="1259" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1582388557236" />
+    <state width="1259" height="218" key="GridCell.Tab.0.left" timestamp="1582404671284">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1259" height="218" key="GridCell.Tab.0.left/0.0.1280.800/1280.0.2560.1080@0.0.1280.800" timestamp="1582404671284" />
+    <state width="613" height="212" key="GridCell.Tab.0.left/0.0.1280.800/1280.23.2560.1057@0.0.1280.800" timestamp="1582368766624" />
+    <state width="1259" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1582388557235" />
+    <state width="1259" height="218" key="GridCell.Tab.0.right" timestamp="1582404671286">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1259" height="218" key="GridCell.Tab.0.right/0.0.1280.800/1280.0.2560.1080@0.0.1280.800" timestamp="1582404671286" />
+    <state width="613" height="212" key="GridCell.Tab.0.right/0.0.1280.800/1280.23.2560.1057@0.0.1280.800" timestamp="1582368766627" />
+    <state width="1259" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1582388557237" />
+    <state x="283" y="0" key="SettingsEditor" timestamp="1582378726721">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="283" y="0" key="SettingsEditor/0.0.1280.800/1280.0.2560.1080@0.0.1280.800" timestamp="1582378726721" />
+    <state x="317" y="232" key="com.intellij.ide.util.TipDialog" timestamp="1582398035228">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="317" y="232" key="com.intellij.ide.util.TipDialog/0.0.1280.800/1280.0.2560.1080@0.0.1280.800" timestamp="1582398035228" />
   </component>
 </project>
