@@ -57,29 +57,71 @@ def findAllDates(currentDate):
     possibleDates = possibleDateGen(currentDate)
     return possibleDates
 
-total = 3000000
+total = 500
 
+def getDiffDate(currentDate,testDate):
+    date_format = "%Y-%m-%d"
+    a = datetime.strptime(currentDate, date_format)
+    b = datetime.strptime(testDate, date_format)
+    delta = abs(b - a)
+    return delta.days
 
-def findProductInDates(allDates,currentStore,currentProduct,currentSales):
+def getExplosion(diff,sales):
+    current = 0
+    if diff == 0:
+        current = int(sales)
+    elif diff == 1:
+        current = float((sales/100)*95)
+    elif diff == 2:
+        current = float((sales/100)*90)
+    elif diff == 3:
+        current = float((sales/100)*85)
+    elif diff == 4:
+        current = float((sales/100)*80)
+    elif diff == 5:
+        current = float((sales/100)*75)
+    return round(current)
+
+def findProductInDates(allDates,currentStore,currentProduct,currentSales,currentDate):
     global total
-    for date in allDates:
-        for row in testDataArray:
-            if row[2] == date and currentStore == row[0] and currentProduct == row[1]:
-                first = row[4][0]
-                row[4] = averageUp(row[4],int(currentSales))
-                total -= row[4][0] - first
-                print(currentSales)
-                print(row)
-                print(total)
 
+
+
+    for date in allDates:
+        if total == 0:
+            break
+        for row in testDataArray:
+
+            if row[2] == date and currentStore == row[0] and currentProduct == row[1] :
+                first = row[4][0]
+                diffDate = getDiffDate(currentDate,row[2])
+                print("Diff: " + str(diffDate) + " CurrentSale: " + str(currentSales))
+                explosion = getExplosion(diffDate,int(currentSales))
+                if (total < explosion or explosion == 0):
+                    continue
+                row[4] = averageUp(row[4],explosion)
+                total -= row[4][0] - first
+                outputWriter.writerow([row[0],row[1],row[2],row[3],row[4][0]])
+                print("Kaydedildi: " + str(row) + " Total:" + str(total) + " Explosion: " + str(explosion))
+
+outputFile = open('outputZevk.csv', 'w', newline='')
+outputWriter = csv.writer(outputFile)
+k = 0
 for i in saleDataArray[1:]:
+    if total == 0:
+        break
+    k +=1
     currentStore = i[0]
     currentProduct = i[1]
     currentDate = i[2]
     currentSales = i[3]
     currentValue = i[5]
-
+    print(str(k) + ": Date alindi")
+    currentSales = float(currentSales.replace(',', '.'))
+    if int((currentSales)*100)/75 > float(total):
+        continue
     allDates = findAllDates(currentDate)
-    print("Date alindi")
-    findProductInDates(allDates,currentStore,currentProduct,currentSales)
+    findProductInDates(allDates,currentStore,currentProduct,currentSales,currentDate)
 
+
+outputFile.close()
