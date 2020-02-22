@@ -1,0 +1,29 @@
+﻿# -*- coding: utf-8 -*-
+"""
+Created on Fri Feb 21 01:11:21 2020
+
+@author: ufukprox
+"""
+import pandas as pd
+import sklearn as sk
+
+
+# importing
+
+aa = pd.read_csv("sales.csv", delimiter = "|")
+ab = pd.read_csv("product_hierarchy.csv", delimiter = "|")
+ac = pd.read_csv("store_cities.csv", delimiter = "|")
+
+# product_id ye göre sıralama, muhtemelen tarih ile değiştirilecek
+
+aa.sort_values("product_id", ascending = "True", inplace = True)
+aa = aa.reset_index(drop= True)
+
+#dummy variable üretme
+
+store_id = aa.iloc[:, 0].values
+product_id = aa.iloc[:, 1].values
+from sklearn.preprocessing import LabelEnconder, OneHotEncoder
+labelencoder_X = LabelEncoder()
+store_id[:, 0] = labelencoder_X.fit_transform
+aa["hierarchy_1"] = 
