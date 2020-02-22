@@ -19,16 +19,23 @@ def storeToCity(store_id):
 	return citydf[citydf["store_id"] == store_id].iloc[0]["city_id"]
 
 basedf = read_csv("shortsales.csv", ",", chunksize = 100000)
+basedf.sort_values("date", ascending = "True", inplace = True)
 basedf.sort_values("product_id", ascending = "True", inplace = True)
+basedf.sort_values("store_id", ascending = "True", inplace = True)
 basedf.reset_index(drop= True, inplace = True)
 
 hierdf = read_csv("C:/Users/canbora/Desktop/Data/product_hierarchy.csv", "|", dtype = "int8")
 citydf = read_csv("C:/Users/canbora/Desktop/Data/store_cities.csv", "|")
-print(citydf)
+
+promodf = read_csv("C:/Users/canbora/Desktop/Data/test.csv", "|")
+promodf.sort_values("product_id", ascending = "True", inplace = True)
+promodf.sort_values("product_id", ascending = "True", inplace = True)
+promodf.sort_values("product_id", ascending = "True", inplace = True)
+promodf.reset_index(drop= True, inplace = True)
 
 basedf["hierarchy_id_1"] = np.asarray(hierdf.iloc[basedf["product_id"]-1]["hierarchy_id_1"])
 basedf["hierarchy_id_2"] = np.asarray(hierdf.iloc[basedf["product_id"]-1]["hierarchy_id_2"])
 basedf["hierarchy_id_3"] = np.asarray(hierdf.iloc[basedf["product_id"]-1]["hierarchy_id_3"])
-basedf["date"] = basedf["date"].apply(dateToInt)
 basedf["city_id"] = basedf["store_id"].apply(storeToCity)
+basedf["date"] = basedf["date"].apply(dateToInt)
 
