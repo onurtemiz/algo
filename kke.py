@@ -1,5 +1,4 @@
 import keras
-
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import OneHotEncoder
@@ -7,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from keras.models import Sequential
 from keras.layers import Dense
+
 
 
     # importing
@@ -41,8 +41,7 @@ def dateToDay(datestr, monthvalue = {1:0, 2:31, 3:59, 4:90, 5:120, 6:151, 7:181,
 df["day"] = df["date"].apply(dateToDay)
 df["year"] = df["date"].apply(dateToYear)
 
-    #city_id ekleme
-
+    #city_id ekleme 
 df["city_id"] = ""
 for i in citydf["store_id"]:
     df["city_id"][df["store_id"]==i] = citydf[citydf["store_id"]==i].iloc[0]["city_id"]
@@ -83,38 +82,41 @@ b = pd.DataFrame({f"b{i}": b[:, i] for i in range(len(hierdict)-2)})
 b = b.astype("int8")
 df = pd.concat((df,b),axis = 1)
 del b
-
+df = df.reindex(sorted(df.columns), axis=1)
+df = (df.drop("sales_quantity", axis = 1)).iloc[:,:]
+df["extra36"] = 0
+df = sc.fit_transform(df)
+lel = classifier.predict(df)
+len(lel[lel > 0])
 #standard scaling
 
 sc = StandardScaler()
 
+
 # ann model
 
 classifier = Sequential()
-classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu', input_dim = 36))
-classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))
+classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu', input_dim = 36))
+classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
+classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
 classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'relu'))
-classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'relu'))
-
+classifier.compile(optimizer = 'adam', loss = 'mean_squared_error', metrics = ['accuracy'])
 # ordering columns of df
 
-df = df.reindex(sorted(df.columns), axis=1)
 print(df.columns)
-
 # starting the loop
 
 oooo = 0
 
-for iiii in range(0, 100000, 5000):
+for iiii in range(0, 25000000, 5000):
     dd = df.iloc[iiii:iiii+5000]
-
+    
     while len(dd.columns) < 37:
         dd["extra" + str(len(dd.columns))] = 0
     X = (dd.drop("sales_quantity", axis = 1)).iloc[:,:].values
     y = dd["sales_quantity"].values
-    
-
     del dd
+    
     # Splitting the dataset into the Training set and Test set
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
@@ -124,19 +126,19 @@ for iiii in range(0, 100000, 5000):
     X_train = sc.fit_transform(X_train)
     X_test = sc.transform(X_test)
 
-    classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
-    classifier.fit(X_train, y_train, batch_size = 25, epochs = 1)
+
+    classifier.fit(X_train, y_train, batch_size = 50, epochs = 90)
     
     oooo += 1
-    print(oooo, "out of 500")
-    if oooo == 20:
+    print(oooo, "out of 5000")
+    if oooo == 5000:
         break
     # Predicting the Test set results
-    
-y_pred = classifier.predict(X_test)
-
-print(df.columns)
 del df
+y_pred = classifier.predict(X_test)
+df["extra"] = 0
+lel = classifier.predict((df.drop("sales_quantity", axis = 1)).iloc[:,:].values)
+
 
     # za
 realtestdf = pd.read_csv(r"C:\Users\ufukprox\Downloads\algorun20-data(1)\data\test.csv", delimiter = "|")
@@ -172,7 +174,6 @@ testdf = testdf.drop("hierarchy_id_3", axis = 1)
 a = onehotencoder.fit_transform(testdf[["city_id"]])
 a = pd.DataFrame({'a0': a[:, 0], 'a1': a[:, 1], 'a2': a[:, 2],'a3': a[:, 3],'a4': a[:, 4],'a5': a[:, 5],'a6': a[:, 6],'a7': a[:, 7],'a8': a[:, 8],'a9': a[:, 9],'a10': a[:, 10],'a11': a[:, 11],'a12': a[:, 12]})
 a = a.astype("int8")
-
 testdf = pd.concat((testdf,a),axis = 1)
 del a
 testdf = testdf.drop("city_id",axis = 1)
@@ -182,8 +183,8 @@ b = pd.DataFrame({f"b{i}": b[:, i] for i in range(len(hierdict)-2)})
 b = b.astype("int8")
 testdf = pd.concat((testdf,b),axis = 1)
 del b
-testdf["order_quantity"] = 0
 K = (testdf.drop("prediction", axis = 1)).iloc[:,:]
+len(K.columns)
 K = K.values
 ##testdf = testdf.drop("order_quantity", axis = 1)
 #testdf["prediction"] = 0
@@ -193,9 +194,9 @@ K = K.values
 #imputer = Imputer()
 #K_test = imputer.fit()
 #K_train, K_test, m_train, m_test = train_test_split(K, m, test_size = 1, random_state = 0)
-
 K = sc.fit_transform(K)
 
+K = K[:,1:]
 #K_test = sc.transform(K_test)
 m_pred = classifier.predict(K)
 print(testdf)
@@ -203,6 +204,15 @@ print(m_pred)
 testdf["prediction"] = m_pred
 print(testdf.head(10))
 Kcsv = testdf.to_csv("transport.csv")
-
+del K, m_pred, obtainpromo1
+testdf["prediction"].sort_values(ascending = False).values[0:100]
     # Making the Confusion Matrix
 
+lel.to_csv("leeeeel.csv")
+print(len(lel[lel==0]))
+fadfafsdfsdfs = 0
+while True:
+    print(round(float(lel[fadfafsdfsdfs])), df["sales_quantity"][fadfafsdfsdfs])
+    fadfafsdfsdfs +=1 
+lel.max(axis = 0)
+m_pred.max()
